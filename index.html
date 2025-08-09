@@ -32,6 +32,7 @@
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
+    /* Scroll suave animado para secciones */
     html {
       scroll-behavior: smooth;
     }
@@ -112,7 +113,6 @@
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 0.8s ease forwards;
-      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .card:nth-child(2) {
       animation-delay: 0.2s;
@@ -124,15 +124,13 @@
       animation-delay: 0.6s;
     }
 
-    /* Producto hero con parallax */
+    /* Producto hero */
     .product-hero {
       display: flex;
       gap: 30px;
       align-items: flex-start;
       flex-wrap: wrap;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
     }
     .photo {
       width: 320px;
@@ -153,8 +151,6 @@
       transition: transform 0.5s ease, box-shadow 0.5s ease;
       filter: drop-shadow(0 4px 6px rgba(176,46,12,0.25));
       animation: fadeIn 1s ease forwards;
-      will-change: transform;
-      /* para mejorar rendimiento del parallax */
     }
     .photo:hover {
       transform: scale(1.08) rotate(2deg);
@@ -171,8 +167,6 @@
       border-radius: 20px;
       user-select: none;
       pointer-events: none;
-      will-change: transform;
-      transition: transform 0.1s ease-out;
     }
 
     /* Badges animados */
@@ -523,7 +517,7 @@
       <div class="product-hero">
         <div class="photo" title="Imagen del producto">
           <!-- Aquí puedes poner la imagen del producto -->
-          <img src="https://images.unsplash.com/photo-1582719478250-9d37e22941c0?auto=format&fit=crop&w=320&q=80" alt="Queso Corteza de Fuego" id="hero-img" />
+          <img src="https://images.unsplash.com/photo-1582719478250-9d37e22941c0?auto=format&fit=crop&w=320&q=80" alt="Queso Corteza de Fuego" />
         </div>
         <div style="flex:1; min-width:280px;">
           <div class="badges">
@@ -538,91 +532,192 @@
           <div>
             <h3>Características</h3>
             <ul class="attrs">
-              <li class="attr"><strong>Presentación:</strong> 250 g por paquete</li>
-              <li class="attr"><strong>Precio:</strong> $150 MXN</li>
-              <li class="attr"><strong>Conservación:</strong> Refrigerado a 4°C</li>
-              <li class="attr"><strong>Caducidad:</strong> 15 días desde apertura</li>
+              <li class="attr"><span>Peso</span><strong>250 g</strong></li>
+              <li class="attr"><span>Ingredientes</span><strong>Leche, chinicuiles, sal, cultivos lácteos</strong></li>
+              <li class="attr"><span>Vida útil</span><strong>14 días refrigerado</strong></li>
             </ul>
           </div>
           <div>
-            <button class="badge" id="btn-info">Más Información</button>
+            <h3>Uso sugerido</h3>
+            <p>
+              Perfecto para tacos gourmet, tablas de quesos o como ingrediente sorpresa en platillos tradicionales. Marida bien con mezcales jóvenes y cervezas artesanales.
+            </p>
+          </div>
+          <div>
+            <a class="badge" id="btn-info" style="display:inline-block; width:fit-content;">Ver ficha técnica</a>
           </div>
         </div>
       </div>
     </section>
 
     <section class="card">
-      <h2>Objetivos</h2>
-      <ul class="obj-list">
-        <li>Difundir la cultura y gastronomía ancestral mexicana.</li>
-        <li>Promover el consumo de alimentos nutritivos y tradicionales.</li>
-        <li>Incentivar la producción local y sustentable.</li>
-      </ul>
+      <h2>Galería</h2>
+      <div class="gallery" title="Galería de imágenes">
+        <div class="thumb" title="Foto 1">
+          <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=400&q=80" alt="Queso y chinicuiles" />
+        </div>
+        <div class="thumb" title="Foto 2">
+          <img src="https://images.unsplash.com/photo-1545249396-ec05b00cde68?auto=format&fit=crop&w=400&q=80" alt="Preparación artesanal" />
+        </div>
+        <div class="thumb" title="Foto 3">
+          <img src="https://images.unsplash.com/photo-1590080877777-b511ae8b2ca8?auto=format&fit=crop&w=400&q=80" alt="Mesa con platillos tradicionales" />
+        </div>
+        <div class="thumb" title="Foto 4">
+          <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=400&q=80" alt="Gusano de maguey" />
+        </div>
+      </div>
     </section>
 
     <section class="card">
-      <h2>Galería de Productos</h2>
-      <div class="gallery">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=200&q=80" alt="Queso en trozo" /></div>
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=200&q=80" alt="Mesa con queso" /></div>
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1556911073-52527ac437f5?auto=format&fit=crop&w=200&q=80" alt="Queso en plato" /></div>
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1600185368759-d96222101ca2?auto=format&fit=crop&w=200&q=80" alt="Producto artesanal" /></div>
-      </div>
+      <h2>Historia breve</h2>
+      <p>
+        En el corazón de Tulancingo de Bravo, Hidalgo, en 2024, nació la idea de crear un queso que combinará lo mejor de la tradición artesanal con un ingrediente único y especial: el gusano de maguey.
+        Todo comenzó con un grupo de amigos apasionados por la gastronomía local, quienes se reunían a compartir recetas, en una de estas reuniones un amigo compartió su receta secreta de queso, que había pasado de generación en generación.
+        Inspirados decidieron experimentar con el gusano de maguey, el cual acompaña a los platillos de la región.
+        La combinación resultó en un queso fresco con un sabor profundo que captura la esencia de Hidalgo.
+      </p>
     </section>
-  </main>
 
+    <section class="card">
+      <h2>Misión</h2>
+      <p>
+        Elaborar y comercializar productos lácteos de la más alta calidad que contribuyan al crecimiento cultural de México.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Visión</h2>
+      <p>
+        Ser un producto lácteo reconocido en el mercado nacional satisfaciendo el paladar de la población, ofreciéndoles siempre productos de primera calidad, manteniendo un enfoque en apoyo a la sociedad y cultura de México.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Valores</h2>
+      <p>
+        Los valores que compartimos en la organización son; compromiso, dignidad del trabajo, profesionalismo, integridad, honestidad, excelencia, entusiasmo, respeto al medio ambiente y responsabilidad.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Justificación</h2>
+      <p>
+        La gastronomía es rica en tradición y sabor, lo que ofrece oportunidades para la creación de nuevos productos innovadores, el gusano de maguey, un insecto comestible, ha sido parte de la dieta de ciertas regiones y culturas. La combinación de queso con gusano de maguey no solo es una fusión de sabores, sino también una forma de promover la sostenibilidad alimentaria de México.
+        El lanzamiento de este producto tradicional innovador, ofrece características únicas que lo diferencian de la competencia de la industria quesera; destacando propiedades benéficas del consumo por medio del gusano de maguey, promoviendo su aceptación y consumo como parte de una alimentación equilibrada y sostenible.
+        Por cada 100 gr de gusano de maguey se aporta un 80% de proteína, además de que contiene complejo B, calcio, magnesio, azufre, potasio, fósforo y hierro, asimismo el producto lácteo fermentado contiene probióticos que ayudan a mejorar la salud intestinal. 
+        El gusano de maguey aporta un sabor único y una textura crujiente que complementa el queso, ofreciendo una experiencia gustativa innovadora.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Objetivos</h2>
+      <h3>Corto plazo</h3>
+      <ul class="obj-list">
+        <li>Consolidarnos con empresas de costos accesibles a nuestros compradores para que el ingreso sea más factible.</li>
+        <li>Contar con marketing para que el producto sea conocido y pueda haber estrategias.</li>
+        <li>Contactar empresas con más experiencia en la rama de industria para que nos ayuden con estrategias.</li>
+        <li>Crear páginas web para contacto con empresas.</li>
+        <li>Hacer envíos a la república.</li>
+        <li>Contar con páginas Facebook, Instagram, WhatsApp para que tengan una mejor atención y más eficiente.</li>
+        <li>Buscar proveedores con materia prima de calidad.</li>
+        <li>Contactar con proveedores fijos para que el producto esté en el tiempo adecuado.</li>
+        <li>Verificar sus parámetros de calidad.</li>
+        <li>Posicionamiento en el mercado.</li>
+        <li>Realizar productos de calidad para que salgan al mercado.</li>
+        <li>Proporcionar nuestra línea de productos para la venta.</li>
+        <li>Trabajar sobre contrato.</li>
+        <li>Elaboración del contrato mientras nuestro personal se encuentre trabajando con nosotros.</li>
+        <li>Hacer encuestas para evaluar qué tal les parece nuestro producto.</li>
+        <li>Si se encuentran modificaciones, aplicarlas.</li>
+        <li>Cumplir con las normas de COFEPRIS.</li>
+        <li>Informes de las normas para que se incorporen en nuestra industria.</li>
+        <li>Publicitar el producto mediante redes sociales para su identificación con el público.</li>
+        <li>Hacer encuestas a la población para medir la satisfacción con nuestro producto.</li>
+        <li>Cumplimiento de las normas.</li>
+        <li>Obtención de parámetros de COFEPRIS para que el procedimiento del producto sea el adecuado.</li>
+      </ul>
+      <h3>Mediano plazo</h3>
+      <ul class="obj-list">
+        <li>Tener la máquina Mp Lactoscan para análisis y control de calidad.</li>
+        <li>Tener capital para hacer la inversión necesaria.</li>
+        <li>Colaboración con otras empresas con estándares de calidad dictados por nosotros.</li>
+        <li>Establecer parámetros de calidad.</li>
+        <li>Implementar estándares de calidad en la materia prima para que el producto sea eficiente.</li>
+        <li>Tener infraestructura acorde a las normas de COFEPRIS.</li>
+        <li>Investigar leyes vigentes en nuestra industria y adaptarlas.</li>
+        <li>Contactar a proveedores fijos para asegurar suministro oportuno.</li>
+        <li>Comprar por pipa para evitar problemas de abastecimiento.</li>
+        <li>Dar capacitación necesaria al personal.</li>
+        <li>Ofrecer salarios accesibles para mantener al personal satisfecho.</li>
+      </ul>
+      <h3>Largo plazo</h3>
+      <ul class="obj-list">
+        <li>Trabajar por contrato con personal capacitado y con experiencia en la industria láctea.</li>
+        <li>Mantener materia prima en almacén para aprovechar precios sin exceder el volumen necesario.</li>
+        <li>Ampliar la red de proveedores para obtener mejores beneficios.</li>
+        <li>Realizar análisis con la máquina de innovación por temporada.</li>
+        <li>Entregar productos de calidad en los tiempos establecidos para satisfacción total de consumidores.</li>
+      </ul>
+    </section>
+
+  </main>
   <footer>
-    <p>&copy; 2025 Corteza de Fuego. Todos los derechos reservados.</p>
-    <p class="small">Diseñado por Eduardo Ruiz Herrera</p>
+    <div class="container">
+      <div class="small">© Corteza de Fuego — Queso con Chinicuiles</div>
+      <div class="small">Contacto: ventas@cortezadefuego.mx · Tel: +52 55 1234 5678</div>
+    </div>
   </footer>
 
-  <!-- Modal de Información -->
-  <div class="modal" id="modal-info" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="close" aria-label="Cerrar">&times;</button>
-      <h2 id="modal-title">Más Información</h2>
-      <p>
-        Nuestro queso artesanal con chinicuiles se elabora con ingredientes 100% naturales y procesos tradicionales, garantizando un sabor único y auténtico. Es rico en proteínas y minerales, ideal para quienes buscan calidad y tradición en cada bocado.
-      </p>
-      <p>
-        Se recomienda conservarlo refrigerado y consumirlo preferentemente antes de la fecha indicada en el paquete. ¡Disfruta de un pedacito de México en tu mesa!
-      </p>
+  <div class="modal" id="modal" aria-hidden="true" aria-labelledby="modalTitle" role="dialog">
+    <div class="modal-card card" role="document">
+      <button class="close" id="modal-close" aria-label="Cerrar ficha técnica">✕</button>
+      <h2 id="modalTitle">Ficha técnica — Corteza de Fuego</h2>
+      <p><strong>Ingredientes:</strong> Leche de vaca, chinicuiles (Gusano de maguey) procesado, cultivos lácteos, sal.</p>
+      <p><strong>Conservación:</strong> Mantener refrigerado entre 0–4 °C. Consumir antes de 14 días desde la producción.</p>
+      <p><strong>Certificaciones:</strong> Producción artesanal; para exportación consultar normativa sanitaria.</p>
     </div>
   </div>
 
   <script>
-    // Menú u otros scripts si los necesitas (aquí solo el parallax y modal)
-
-    // Parallax simple para la imagen hero
-    const heroImg = document.getElementById('hero-img');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      // Solo un pequeño movimiento vertical para efecto parallax
-      heroImg.style.transform = `translateY(${scrollY * 0.3}px)`;
-    });
-
-    // Modal info
+    const modal = document.getElementById('modal');
     const btnInfo = document.getElementById('btn-info');
-    const modal = document.getElementById('modal-info');
-    const closeBtn = modal.querySelector('.close');
+    const modalClose = document.getElementById('modal-close');
 
-    btnInfo.addEventListener('click', () => {
+    function showModal() {
       modal.classList.add('show');
       modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // Evita scroll de fondo
-    });
-    closeBtn.addEventListener('click', () => {
+      document.body.style.overflow = 'hidden';
+    }
+    function hideModal() {
       modal.classList.remove('show');
       modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
+    }
+
+    btnInfo.addEventListener('click', showModal);
+    modalClose.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) hideModal();
     });
-    // Cerrar modal al dar click fuera del contenido
-    modal.addEventListener('click', e => {
-      if(e.target === modal){
-        modal.classList.remove('show');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = 'auto';
-      }
+
+    // Animar la aparición de las cards al hacer scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.2});
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Animación inicial para header brand
+    window.addEventListener('load', () => {
+      document.querySelector('.brand').style.opacity = 1;
+      document.querySelector('.brand').style.transform = 'translateX(0)';
     });
   </script>
 </body>
